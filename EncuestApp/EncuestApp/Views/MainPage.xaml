@@ -4,8 +4,6 @@
              x:Class="EncuestApp.Views.MainPage"
              Title="{Binding Title}">
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Xamarin Forms and Prism!" />
-    </StackLayout>
+    <Button Text="Iniciar Cuestionario" Command="{Binding GoCommand}" HeightRequest="80" HorizontalOptions="Center" VerticalOptions="Center"> </Button>
 
 </ContentPage>

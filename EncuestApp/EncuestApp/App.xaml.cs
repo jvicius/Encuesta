@@ -30,6 +30,7 @@ namespace EncuestApp
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<CapturaPage, CapturaPageViewModel>();
         }
     }
 }

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:EncuestApp.Controls;assembly=EncuestApp"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="EncuestApp.Views.CapturaPage"
+             Title="{Binding Title}"
+             >
+
+    <Grid ColumnSpacing="0" BackgroundColor="Transparent" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <controls:HliItemsView  Grid.Row="0" ItemsSource="{Binding DocumentDetail}" x:Name="DocumentDetails" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <controls:HliItemsView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="5,0,5,0" Spacing="0">
+                        <!--Text-->
+                        <StackLayout IsVisible="{Binding IsText}" Spacing="0">
+                            <Entry Text="{Binding value,Mode=TwoWay}" Placeholder="{Binding fieldName}" HorizontalOptions="FillAndExpand" ></Entry>
+                        </StackLayout>
+                  
+                        <!--Date-->
+                        <StackLayout IsVisible="{Binding IsDate}" Spacing="0">
+                            <Label Text="{Binding fieldName}"></Label>
+                            <DatePicker HorizontalOptions="FillAndExpand" Date="{Binding valueDate,Mode=TwoWay}"></DatePicker>
+                        </StackLayout>
+                    </StackLayout>
+
+
+                </DataTemplate>
+            </controls:HliItemsView.ItemTemplate>
+        </controls:HliItemsView>
+
+
+        <Button Text="{Binding BtnText}" Grid.Row="1" CornerRadius="0" Command="{Binding GoCommand}"></Button>
+
+
+    </Grid>
+
+</ContentPage>

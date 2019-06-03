@@ -1,9 +1,7 @@
-﻿using Prism.Commands;
+﻿using System.Threading.Tasks;
+using Acr.UserDialogs;
 using Prism.Mvvm;
 using Prism.Navigation;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace EncuestApp.ViewModels
 {
@@ -21,6 +19,18 @@ namespace EncuestApp.ViewModels
         public ViewModelBase(INavigationService navigationService)
         {
             NavigationService = navigationService;
+        }
+
+        public async Task<bool> Confirm(string msg)
+        {
+            var c = new ConfirmConfig
+            {
+                Title = Title,
+                Message = msg,
+                OkText = "Aceptar",
+                CancelText = "Cancelar"
+            };
+            return await UserDialogs.Instance.ConfirmAsync(c);
         }
 
         public virtual void OnNavigatedFrom(INavigationParameters parameters)
